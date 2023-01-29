@@ -10,8 +10,14 @@ const count = ref(0);
       <h1>Your count is...</h1>
       <input type="number" :value="`${count}`"/>
       <div>
+        <p>Change by 1</p>
         <button @click="count--">-</button>
         <button @click="count++">+</button>
+      </div>
+      <div>
+        <p>Change by 5</p>
+        <button @click="count-=5">-</button>
+        <button @click="count+=5">+</button>
       </div>
     </div>
   </body>
@@ -25,11 +31,6 @@ body {
   align-items: center;
   text-align: center;
 }
-.count {
- 
-  width: 100%;
-  margin: 0 auto;
-}
 
 h1 {
   font-size: 70px;
@@ -41,10 +42,14 @@ input {
   text-align: center;
 }
 
+p {
+  margin-top: 15px;
+}
+
 button {
   width: 50px;
   height: 50px;
   font-size: 40px;
-  margin: 25px 4px
+  margin: 5px 4px
 }
 </style>
