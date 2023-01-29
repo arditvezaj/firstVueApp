@@ -1,47 +1,50 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import { ref } from 'vue';
+
+const count = ref(0);
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <body>
+    <div class="count">
+      <h1>Your count is...</h1>
+      <input type="number" :value="`${count}`"/>
+      <div>
+        <button @click="count--">-</button>
+        <button @click="count++">+</button>
+      </div>
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </body>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+body {
+  background-color: rgb(97, 211, 152);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.count {
+ 
+  width: 100%;
+  margin: 0 auto;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+h1 {
+  font-size: 70px;
+  margin-bottom: 30px;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+input {
+  font-size: 30px;
+  text-align: center;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+button {
+  width: 50px;
+  height: 50px;
+  font-size: 40px;
+  margin: 25px 4px
 }
 </style>
